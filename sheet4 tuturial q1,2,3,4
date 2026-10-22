@@ -1,0 +1,171 @@
+q4\\
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package javaapplication280;
+import java.util.Scanner;
+/**
+ *
+ * @author STUDENT
+ */
+public class Main {
+    public static boolean isValidPassword(String password) {
+        if (password.length() < 8) {
+            return false;
+        }
+        int digitCount = 0;
+        boolean hasUppercase = false;
+        for (int i = 0; i < password.length(); i++) {
+            char ch = password.charAt(i);
+            if (!Character.isLetterOrDigit(ch)) {
+                return false;
+            }
+            if (Character.isDigit(ch)) {
+                digitCount++;
+            }
+            if (Character.isUpperCase(ch)) {
+                hasUppercase = true;
+            }
+        }
+        return digitCount >= 2 && hasUppercase;
+    }
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Java2024Valid: "
+                + isValidPassword("Java2024Valid"));
+        System.out.println("short1A: "
+                + isValidPassword("short1A"));
+        System.out.print("Enter a password: ");
+        String password = input.nextLine();
+        if (isValidPassword(password)) {
+            System.out.println("Valid Password");
+        } else {
+            System.out.println("Invalid Password");
+        }
+        input.close();
+    }
+}
+
+//q3:
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package javaapplication279;
+import java.util.Scanner;
+
+/**
+ *
+ * @author STUDENT
+ */
+public class Main {
+    public static boolean isValidPassword(String password) {
+        if (password.length() < 8) {
+            return false;
+        }
+        int digitCount = 0;
+        boolean hasUppercase = false;
+        for (int i = 0; i < password.length(); i++) {
+            char ch = password.charAt(i);
+            if (!Character.isLetterOrDigit(ch)) {
+                return false;
+            }
+            if (Character.isDigit(ch)) {
+                digitCount++;
+            }
+            if (Character.isUpperCase(ch)) {
+                hasUppercase = true;
+            }
+        }
+        return digitCount >= 2 && hasUppercase;
+    }
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter a password: ");
+        String password = input.nextLine();
+        if (isValidPassword(password)) {
+            System.out.println("Valid Password");
+        } else {
+            System.out.println("Invalid Password");
+        }
+        input.close();
+    }
+}
+q2\\
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package javaapplication278;
+import java.util.Scanner;
+
+/**
+ *
+ * @author STUDENT
+ */
+public class Main {
+    public static double computeArea(double radius) {
+        return Math.PI * radius * radius;
+    }
+
+    public static double computeArea(double length, double width) {
+        return length * width;
+    }
+    public static double computeArea(double base, double height,
+                                     boolean isTriangle) {
+        return (base * height) / 2;
+    }
+  public static void main(String[] args) {
+        double circleArea = computeArea(5.0);
+        double rectangleArea = computeArea(4.0, 6.0);
+        double triangleArea = computeArea(4.0, 6.0, true);
+        System.out.println("Circle Area = " + circleArea);
+        System.out.println("Rectangle Area = " + rectangleArea);
+        System.out.println("Triangle Area = " + triangleArea);
+    }
+}
+q1\\
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package javaapplication277;
+import java.util.Scanner;
+
+/**
+ *
+ * @author STUDENT
+ */
+public class Main {
+    public static double calculateDistance(double x1, double y1,
+                                           double x2, double y2) {
+        double distance = Math.sqrt(
+            Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2)
+        );
+        return distance;
+    }
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter x1: ");
+        double x1 = input.nextDouble();
+        System.out.print("Enter y1: ");
+        double y1 = input.nextDouble();
+        System.out.print("Enter x2: ");
+        double x2 = input.nextDouble();
+        System.out.print("Enter y2: ");
+        double y2 = input.nextDouble();
+        double distance = calculateDistance(x1, y1, x2, y2);
+        System.out.printf("Distance: %.2f%n", distance);
+        input.close();
+    }
+}
+---------------------------------------------------------------------------
