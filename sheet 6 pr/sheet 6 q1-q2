@@ -1,0 +1,113 @@
+Q1
+
+*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package javaapplication236;
+public class JavaApplication236 {
+    private String invoiceID;
+    private double discount;
+    private double totalInvoice;
+
+    public JavaApplication236() {
+        invoiceID = "1";
+        discount = 2.5;
+        totalInvoice = 100;
+    }
+
+    public JavaApplication236(String id, double d, double total) {
+        invoiceID = id;
+        discount = d;
+        totalInvoice = total;
+    }
+
+    public String getInvoiceID() {
+        return invoiceID;
+    }
+
+    public double getDiscount() {
+        return discount;
+    }
+
+    public double getTotalInvoice() {
+        return totalInvoice;
+    }
+
+    public void setDiscount(double discount) {
+        this.discount = discount;
+    }
+
+    public void setTotalInvoice(double totalInvoice) {
+        this.totalInvoice = totalInvoice;
+    }
+
+    public double calculateDiscountPrice() {
+        return totalInvoice - (totalInvoice * discount / 100);
+    }
+
+    public static void main(String[] args) {
+
+        JavaApplication236 obj = new JavaApplication236();
+        System.out.println("Invoice ID: " + obj.getInvoiceID());
+        System.out.println("Old Price: " + obj.getTotalInvoice());
+
+        obj.setDiscount(5.5);
+        obj.setTotalInvoice(200);
+
+        System.out.println("Discount: " + obj.getDiscount());
+        System.out.println("New Price: " + obj.getTotalInvoice());
+        System.out.println("Price After Discount: "
+                + obj.calculateDiscountPrice());
+    }
+}
+-------------------------------------------------------------------------
+Q2
+
+* To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+import java.util.Scanner;
+public class Location {
+    private double maxValue;
+    private int column;
+    public double getMaxValue() {
+        return maxValue;
+    }
+
+    public int getColumn() {
+        return column;
+    }
+    public void locateLargest(double[] values) {
+
+        maxValue = values[0];
+        column = 0;
+        for (int i = 1; i < values.length; i++) {
+
+            if (values[i] > maxValue) {
+                maxValue = values[i];
+                column = i;
+            }
+        }
+    }
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter the number of columns in the array: ");
+        int n = input.nextInt();
+        double[] values = new double[n];
+        System.out.println("Enter the array elements:");
+        for (int i = 0; i < n; i++) {
+            values[i] = input.nextDouble();
+        }
+        Location obj = new Location();
+        obj.locateLargest(values);
+        System.out.println("The location of the largest element is "
+                + obj.getMaxValue() + " at position ("
+                + obj.getColumn() + ")");
+
+    }
+}
